@@ -1,9 +1,7 @@
 package com.hascode.tutorial;
 
-import static com.hascode.tutorial.Example2.Month.AUGUST;
-import static com.hascode.tutorial.Example2.Month.DECEMBER;
-import static com.hascode.tutorial.Example2.Month.JUNE;
-import static com.hascode.tutorial.Example2.Month.NOVEMBER;
+
+import static com.hascode.tutorial.ExampleWithNewSwitch.Month.*;
 
 public class ExampleWithNewSwitch {
   enum Month {
@@ -18,21 +16,9 @@ public class ExampleWithNewSwitch {
   }
 
   static boolean isWinter(Month month){
-    boolean winter = false;
-    switch(month){
-      case NOVEMBER:
-        winter = true;
-        break;
-      case DECEMBER:
-        winter = true;
-        break;
-      case JANUARY:
-        winter = true;
-        break;
-      default:
-
-    }
-
-    return winter;
+    return switch(month){
+      case NOVEMBER, DECEMBER, JANUARY -> true;
+      default -> false;
+    };
   }
 }
